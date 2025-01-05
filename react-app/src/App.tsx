@@ -1,8 +1,17 @@
 import Card, { CardBody } from "./components/Card";
+import Button from "./components/Button";
+import { useState } from "react";
 function App() {
+  const [isLoading, setisLoading] = useState(false);
+  const handleClick = () => setisLoading(true);
   return (
     <Card>
       <CardBody titulo="Titulo" text="Body" />
+      {!isLoading} ?{" "}
+      <Button clase="btn btn-primary" onClick={handleClick}>
+        Hola Mundo
+      </Button>{" "}
+      :<Button clase="btn btn-secondary">...Cargando</Button>
     </Card>
   );
 }
