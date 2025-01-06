@@ -7,11 +7,9 @@ function App() {
   return (
     <Card>
       <CardBody titulo="Titulo" text="Body" />
-      {!isLoading} ?{" "}
       <Button clase="btn btn-primary" onClick={handleClick}>
         Hola Mundo
-      </Button>{" "}
-      :<Button clase="btn btn-secondary">...Cargando</Button>
+      </Button>
     </Card>
   );
 }
