@@ -1,16 +1,21 @@
 import Card, { CardBody } from "./components/Card";
 import Button from "./components/Button";
+import CardCaja from "./components/CardCaja";
 import { useState } from "react";
+import cajas from './data/cajas.json';
 function App() {
-  const [isLoading, setisLoading] = useState(false);
-  const handleClick = () => setisLoading(true);
   return (
-    <Card>
-      <CardBody titulo="Titulo" text="Body" />
-      <Button clase="btn btn-primary" onClick={handleClick}>
-        Hola Mundo
-      </Button>
-    </Card>
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+      {cajas.map((caja, index) => (
+        <CardCaja
+          key={index} // El atributo key es importante para identificar cada componente en la lista.
+          url={caja.url}
+          title={caja.title}
+          description={caja.description}
+          price={`$${caja.price}`}
+        />
+      ))}
+    </div>
   );
 }
 
