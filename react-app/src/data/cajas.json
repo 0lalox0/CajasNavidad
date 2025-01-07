@@ -1,0 +1,136 @@
+[
+  {
+    "title": "Caja 1",
+    "description": [
+      "1- Sidra la Farruca x 720cc. (o Quintana)",
+      "1- Pan Dulce Buon Natale de Nevares x 400grs. (c/Frutas)",
+      "1- Budín Buon Natale de Nevares x 170grs. (c/Frutas, s/Frutas o Marmolado)",
+      "1- Postre Nucrem Georgalos x 70grs.",
+      "1- Turrón de Maní Paulista x 80grs.",
+      "1- Garrapiñada Paulista x 80grs.",
+      "1- Caja con motivos Navideños"
+    ],
+    "price": 9500,
+    "url": "FotosCajas/Caja1.png"
+  },
+  {
+    "title": "Caja 1 Especial",
+    "description": [
+      "1- Sidra la Farruca x 720cc.",
+      "1- Anana Fizz o Fresa Tunuyan o Vino Marques del Sur Tinto Roble Malbec x 720cc.",
+      "1- Pan Dulce France x 400grs. (c/Frutas. Elaborado por Firenze)",
+      "1- Budín Pozo o France de Firenze x 170grs. (c/Frutas, Marmolado o c/Chips)",
+      "1- Postre Nucrem Georgalos x 70grs.",
+      "1- Turron de Maní Paulista x 80grs.",
+      "1- Garrapiñada Paulista x 80grs.",
+      "1- Confite Color Paulista x 80grs.",
+      "1- Caja con motivos Navideños"
+    ],
+    "price": 12350,
+    "url": "FotosCajas/Caja1E.png"
+  },
+  {
+    "title": "Caja 2",
+    "description": [
+      "1- Sidra la Victoria x 720cc.",
+      "1- Anana Fizz o Fresa Del Valle o Quintana x 720cc.",
+      "1- Pan Dulce Los Dos Chinos x 400grs. (c/Frutas)",
+      "1- Budín Fantoche x 200grs. (c/Frutas, Marmolado o c/Chips)",
+      "1- Turron de Maní Bariloche x 80grs.",
+      "1- Crocante de Maní Paulista x 80grs.",
+      "1- Garrapiñada de Maní Bariloche x 80grs.",
+      "1- Peladilla de Maní Color Bariloche x 80grs.",
+      "1- Postre Nucrem Georgalos x 75grs. o postre Nugaton x 75grs.",
+      "1- Caja con motivos Navideños"
+    ],
+    "price": 17500,
+    "url": "FotosCajas/Caja2.png"
+  },
+  {
+    "title": "Caja 3",
+    "description": [
+      "1- Sidra Cosecha Esp. 1930 Sacani x 750cc.",
+      "1- Anana Fizz o Pera Cosecha Esp. 1930 Sacani x 750cc.",
+      "1- Vino Viejo Rincon Roble Malbec x 750cc.",
+      "1- Pan Dulce Marcolla x 500grs. (c/Frutas o c/Chips)",
+      "1- Budín Marcolla x 200gr. (c/Frutas o c/Chips)",
+      "1- Turron con Maní Bonafide semejando x 80grs.",
+      "1- Crocante de Maní Bariloche x 100grs.",
+      "1- Garrapiñada de Maní Bonafide x 80grs.",
+      "1- Pasas de Uva Bañadas Bonafide x 80grs.",
+      "1- Mani con Chocolate Bonafide x 80grs.",
+      "1- Postre Nucrem de Georgalos o Postre Nugaton x 75grs.",
+      "1- Caja con motivos Navideños"
+    ],
+    "price": 24900,
+    "url": "FotosCajas/Caja3.png"
+  },
+  {
+    "title": "Caja 4",
+    "description": [
+      "1- Sidra Cosecha Esp. 1930 Sacani x 750cc.",
+      "1- Federico de Alvear Ext. Brut Rosado Dulce Demi Sec x 750cc.",
+      "1- Viejo Tinto Escorihuela Gascon Malbec o Cabernet x 750cc.",
+      "1- Pan Dulce Musel x 500grs. (c/Frutas)",
+      "1- Budín Musel x 200gr. (Marmolado y c/Chips)",
+      "1- Postre Nugaton x 100grs. o Postre Nucrem de Georgalos x 105grs.",
+      "1- Cereal Bañados en Cho. Bonafide x80grs.",
+      "1- Mani con Chocolate Bonafide x80grs.",
+      "1- Garrapiñada de Maní Bonafide x100grs.",
+      "1- Crocante de Maní Bariloche x100grs.",
+      "1- Turrón Cremona de Maní Bonafide x 80grs.",
+      "1- Caja con motivos Navideños"
+    ],
+    "price": 32000,
+    "url": "FotosCajas/Caja4.png"
+  },
+  {
+    "title": "Caja 5",
+    "description": [
+      "1- Sidra Sacani Espumante 1930 x 750cc.",
+      "1- Espumante de Alvear Brut Ext. Espumante x 750cc.",
+      "1- Vino Altos del Plata Malbec o Altos del Plata Cabernet x 750cc.",
+      "1- Pan Dulce de Bramatino Panettone x 500grs.",
+      "1- Budín Los Dos Chinos x 250grs. Marmolado.",
+      "1- Chocolates Cadbury x 200grs.",
+      "1- Garrapiñada Bonafide x100grs.",
+      "1- Crocante Bonafide x100grs.",
+      "1- Postre Nucrem Especial x 200gr.",
+      "1- Turrón de Maní Cremino Bonafide x100gr.",
+      "1- Caja con motivos Navideños"
+    ],
+    "price": 42000,
+    "url": "FotosCajas/Caja5.png"
+  },
+  {
+    "title": "Caja 6",
+    "description": [
+      "1- Sidra Cosecha 1930 Sacani x 750cc.",
+      "1- Espumante de Alvear Brut Rosado x 750cc.",
+      "1- Vino Roble Tinto Malbec O Cabernet x 750cc.",
+      "1- Pan Dulce France x 400grs. (c/Frutas)",
+      "1- Budín France x 170grs. (Marmolado)",
+      "1- Postre Nucrem de Georgalos x 100gr.",
+      "1- Crocante de Maní Paulista x 100gr.",
+      "1- Turrón de Maní Bonafide x 80gr.",
+      "1- Cereal Bañados en Cho. Bonafide x 100gr.",
+      "1- Peladillas de Maní Color Paulista x 80gr.",
+      "1- Caja con motivos Navideños"
+    ],
+    "price": 25000,
+    "url": "FotosCajas/Caja6.png"
+  },
+  {
+    "title": "Caja 7",
+    "description": [
+      "1- Sidra Campanita Tinto x 720cc.",
+      "1- Pan Dulce Nevares x 400grs. (c/Frutas)",
+      "1- Turrón de Maní Paulista x 80grs.",
+      "1- Garrapiñada Paulista x 80grs.",
+      "1- Postre Nucrem Georgalos x 100grs.",
+      "1- Caja con motivos Navideños"
+    ],
+    "price": 8400,
+    "url": "FotosCajas/Caja7.png"
+  }
+]

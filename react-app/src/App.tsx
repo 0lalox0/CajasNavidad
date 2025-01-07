@@ -1,4 +1,27 @@
-import { useState } from 'react'
+import Card, { CardBody } from "./components/Card";
+import Button from "./components/Button";
+import CardCaja from "./components/CardCaja";
+import { useState } from "react";
+import cajas from './data/cajas.json';
+function App() {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+      {cajas.map((caja, index) => (
+        <CardCaja
+          key={index} // El atributo key es importante para identificar cada componente en la lista.
+          url={caja.url}
+          title={caja.title}
+          description={caja.description}
+          price={`$${caja.price}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default App;
+
+/*import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -29,7 +52,4 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
-}
-
-export default App
+  )*/
