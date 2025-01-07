@@ -1,8 +1,9 @@
 function Titulo() {
   return (
-    <div>
-      <h1>React Titulo</h1>
-      <p>Open the console to see the output of the Rust function.</p>
+    <div style={{ textAlign: "center" }}>
+      <h1 style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+        Cajas Navideñas la Plata
+      </h1>
     </div>
   );
 }
