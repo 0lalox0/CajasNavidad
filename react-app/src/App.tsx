@@ -1,21 +1,27 @@
 import Card, { CardBody } from "./components/Card";
 import Button from "./components/Button";
+import Titulo from "./components/Titulo";
 import CardCaja from "./components/CardCaja";
 import { useState } from "react";
-import cajas from './data/cajas.json';
+import cajas from "./data/cajas.json";
+import Footer from "./components/Footer";
 function App() {
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-      {cajas.map((caja, index) => (
-        <CardCaja
-          key={index} // El atributo key es importante para identificar cada componente en la lista.
-          url={caja.url}
-          title={caja.title}
-          description={caja.description}
-          price={`$${caja.price}`}
-        />
-      ))}
-    </div>
+    <>
+      <Titulo />
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
+        {cajas.map((caja, index) => (
+          <CardCaja
+            key={index} // El atributo key es importante para identificar cada componente en la lista.
+            url={caja.url}
+            title={caja.title}
+            description={caja.description}
+            price={`$${caja.price}`}
+          />
+        ))}
+      </div>
+      <Footer></Footer>
+    </>
   );
 }
 
