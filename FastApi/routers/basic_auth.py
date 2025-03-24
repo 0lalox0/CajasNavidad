@@ -3,7 +3,7 @@ from pydantic import BaseModel  # Crea una entidad, nos evita crear el construct
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 router = APIRouter(
-    prefix="/basic_auth", tags=["auth"], responses={404: {"message": "Not Found"}}
+    prefix="/basic_auth", tags=["basic_auth"], responses={404: {"message": "Not Found"}}
 )
 Oauth2 = OAuth2PasswordBearer(tokenUrl="login")
 
