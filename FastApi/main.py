@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import cajas, users, JWT_auth
+from routers import cajas, users, JWT_auth, users_db
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
@@ -8,6 +8,7 @@ app = FastAPI()
 app.include_router(cajas.router)
 app.include_router(users.router)
 app.include_router(JWT_auth.router)
+app.include_router(users_db.router)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 

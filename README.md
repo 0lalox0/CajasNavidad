@@ -1,7 +1,10 @@
  # CajasNavidad
 Pagina para mi venta de cajas navideñas
 # Notas
+python -f venv env(este es el nombre) #create ve
 
-source .venv/Scripts/activate #create VE
+source .venv/Scripts/activate #execute VE
 
-Run project
+which python #check ve
+
+fastapi dev main.py   #Run project
