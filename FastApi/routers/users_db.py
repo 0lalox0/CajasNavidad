@@ -16,7 +16,7 @@ users_list = []
 
 @router.get("/", response_model=list[User])
 async def users():
-    return users_schema(db_client.local.users.find())
+    return users_schema(db_client.users.find())
 
 
 @router.get("/{id}")
@@ -35,26 +35,28 @@ async def create_user(user: User):
         raise HTTPException(status_code=404, detail="User Already Exist")
     user_dict = dict(user)
     del user_dict["id"]
-    id = db_client.local.users.insert_one(user_dict).inserted_id
+    id = db_client.users.insert_one(user_dict).inserted_id
 
     new_user = user_schema(
-        db_client.local.users.find_one({"_id": id})
+        db_client.users.find_one({"_id": id})
     )  # mongdb crea de manera automatica _id
     return User(**new_user)
 
 
 @router.put("/", response_model=User)
 async def update_user(user: User):
-    for index, saved_user in enumerate(users_list):
-        if saved_user.id == user.id:
-            users_list[index] = user
-            return user
-    return {"message": "User not found"}
+    user_dict = dict(user)
+    del user_dict["id"]
+    try:
+        db_client.users.find_one_and_replace({"_id": ObjectId(user.id)}, user_dict)
+    except:
+        return {"Error": "The user hasen't been updated"}
+    return search_user("_id", ObjectId(user.id))
 
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
 async def delete_user(id: str):
-    user = db_client.local.users.find_one_and_delete({"_id": ObjectId(id)})
+    user = db_client.users.find_one_and_delete({"_id": ObjectId(id)})
 
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -62,7 +64,7 @@ async def delete_user(id: str):
 
 def search_user(field: str, key):
     try:
-        user = user_schema(db_client.local.users.find_one({field: key}))
+        user = user_schema(db_client.users.find_one({field: key}))
         return User(**user)
     except:
         return {"message": "User not found"}
@@ -71,7 +73,7 @@ def search_user(field: str, key):
 def search_user_by_email(email: str):
 
     try:
-        user = user_schema(db_client.local.users.find_one({"email": email}))
+        user = user_schema(db_client.users.find_one({"email": email}))
         return User(**user)
     except:
         return {"message": "User not found"}
