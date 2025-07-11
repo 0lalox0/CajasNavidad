@@ -29,7 +29,7 @@ const Footer = () => {
           <h4 className="footer-subtitle">Contacto</h4>
           <div className="contact-info">
             <a
-              href="https://wa.me/yourwhatsappnumber"
+              href="https://wa.me/542216143354"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-link whatsapp"
