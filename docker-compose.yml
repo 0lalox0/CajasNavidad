@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # Servicio para la API FastAPI
+  api:
+    build:
+      context: ./FastApi
+      dockerfile: Dockerfile
+    container_name: cajas-navidad-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./FastApi:/app
+    networks:
+      - cajas-navidad-network
+    restart: unless-stopped
+
+  # Servicio para la aplicación React
+  frontend:
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    container_name: cajas-navidad-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+    networks:
+      - cajas-navidad-network
+    restart: unless-stopped
+
+networks:
+  cajas-navidad-network:
+    driver: bridge
+
+volumes:
+  api_data:
