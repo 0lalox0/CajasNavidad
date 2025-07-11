@@ -5,15 +5,14 @@ type Props = {
   title: string;
   description: string[];
   price: string;
+  onCajaClick: () => void;
 };
 
 function CardCaja(props: Props) {
-  const { url, title, description, price } = props;
+  const { url, title, description, price, onCajaClick } = props;
   
   const handleClick = () => {
-    let str = "¡Has seleccionado " + title + "!";
-    alert(str);
-    //Rutear al detalle de la caja
+    onCajaClick();
   };
   
   return (
@@ -49,8 +48,11 @@ function CardCaja(props: Props) {
             <span className="price-label">Precio:</span>
             <span className="price-value">{price}</span>
           </div>
-          <button className="btn-select">
-            Seleccionar 🛒
+          <button className="btn-select" onClick={(e) => {
+            e.stopPropagation();
+            handleClick();
+          }}>
+            Ver detalles �
           </button>
         </div>
       </div>

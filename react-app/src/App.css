@@ -6,6 +6,11 @@
   overflow-x: hidden;
 }
 
+/* Prevenir scroll cuando el modal esté abierto */
+body.modal-open {
+  overflow: hidden;
+}
+
 /* Decoración de fondo navideña */
 .background-decoration {
   position: fixed;

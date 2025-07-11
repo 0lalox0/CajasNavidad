@@ -34,14 +34,14 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="contact-link whatsapp"
             >
-              📱 WhatsApp: +1234567890
+              📱 WhatsApp: +542216143354
             </a>
           </div>
         </div>
       </div>
       
       <div className="footer-bottom">
-        <p>&copy; 2024 Cajas Navideñas La Plata. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Cajas Navideñas La Plata. Todos los derechos reservados.</p>
         <div className="footer-decoration">
           <span>🎁</span>
           <span>⭐</span>

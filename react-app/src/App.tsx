@@ -1,10 +1,29 @@
+import { useState } from "react";
 import Titulo from "./components/Titulo";
 import CardCaja from "./components/CardCaja";
+import CajaDetalle from "./components/CajaDetalle";
 import cajas from "./data/cajas.json";
 import Footer from "./components/Footer";
 import "./App.css";
 
+type Caja = {
+  title: string;
+  description: string[];
+  price: number;
+  url: string;
+};
+
 function App() {
+  const [cajaSeleccionada, setCajaSeleccionada] = useState<Caja | null>(null);
+
+  const handleCajaClick = (caja: Caja) => {
+    setCajaSeleccionada(caja);
+  };
+
+  const handleCerrarDetalle = () => {
+    setCajaSeleccionada(null);
+  };
+
   return (
     <div className="app-container">
       <div className="background-decoration">
@@ -31,12 +50,20 @@ function App() {
               title={caja.title}
               description={caja.description}
               price={`$${caja.price}`}
+              onCajaClick={() => handleCajaClick(caja)}
             />
           ))}
         </div>
       </main>
 
       <Footer />
+
+      {cajaSeleccionada && (
+        <CajaDetalle
+          caja={cajaSeleccionada}
+          onClose={handleCerrarDetalle}
+        />
+      )}
     </div>
   );
 }

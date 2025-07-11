@@ -27,6 +27,11 @@ body {
   background-attachment: fixed;
 }
 
+/* Prevenir scroll cuando el modal esté abierto */
+body.modal-open {
+  overflow: hidden;
+}
+
 #root {
   width: 100%;
   min-height: 100vh;
