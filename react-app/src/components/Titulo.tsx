@@ -1,9 +1,16 @@
+import './Titulo.css';
+
 function Titulo() {
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1 style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-        Cajas Navideñas la Plata
+    <div className="titulo-container">
+      <h1 className="titulo-principal">
+        🎄 Cajas Navideñas La Plata 🎁
       </h1>
+      <div className="titulo-decoracion">
+        <span className="estrella">⭐</span>
+        <span className="linea-decorativa"></span>
+        <span className="estrella">⭐</span>
+      </div>
     </div>
   );
 }

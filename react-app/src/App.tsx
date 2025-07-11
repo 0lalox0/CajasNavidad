@@ -1,27 +1,43 @@
-import Card, { CardBody } from "./components/Card";
-import Button from "./components/Button";
 import Titulo from "./components/Titulo";
 import CardCaja from "./components/CardCaja";
-import { useState } from "react";
 import cajas from "./data/cajas.json";
 import Footer from "./components/Footer";
+import "./App.css";
+
 function App() {
   return (
-    <>
-      <Titulo />
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "20px" }}>
-        {cajas.map((caja, index) => (
-          <CardCaja
-            key={index} // El atributo key es importante para identificar cada componente en la lista.
-            url={caja.url}
-            title={caja.title}
-            description={caja.description}
-            price={`$${caja.price}`}
-          />
-        ))}
+    <div className="app-container">
+      <div className="background-decoration">
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
       </div>
-      <Footer></Footer>
-    </>
+      
+      <header className="header">
+        <Titulo />
+        <p className="subtitle">
+          🎄 Descubre nuestras cajas navideñas especialmente preparadas para ti 🎁
+        </p>
+      </header>
+
+      <main className="main-content">
+        <div className="cajas-grid">
+          {cajas.map((caja, index) => (
+            <CardCaja
+              key={index}
+              url={caja.url}
+              title={caja.title}
+              description={caja.description}
+              price={`$${caja.price}`}
+            />
+          ))}
+        </div>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
 
