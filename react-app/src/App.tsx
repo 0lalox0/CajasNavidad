@@ -38,7 +38,13 @@ function App() {
         <Titulo />
         <p className="subtitle">
           🎄 Descubre nuestras cajas navideñas especialmente preparadas para ti 🎁
-        </p>
+          <br />
+          ¡Con Envios particular a toda la Plata, Villa Elisa y alrededores!
+          <br />
+          ¡Tambien hacemos envios a Avellaneda, Buenos Aires y envios por correo a todo el pais!
+          <br />
+          <span className="subtitle-highlight">¡Haz tu pedido ahora!</span>
+        </p>  
       </header>
 
       <main className="main-content">

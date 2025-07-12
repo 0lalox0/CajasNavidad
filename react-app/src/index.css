@@ -5,6 +5,14 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+  background: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 :root {
   font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
   line-height: 1.5;
@@ -17,14 +25,22 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Evitar flash de contenido sin estilo */
+  visibility: visible;
+  opacity: 1;
 }
 
 body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
   background: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
 }
 
 /* Prevenir scroll cuando el modal esté abierto */
@@ -35,6 +51,8 @@ body.modal-open {
 #root {
   width: 100%;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {

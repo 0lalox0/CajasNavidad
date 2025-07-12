@@ -48,12 +48,12 @@ function CardCaja(props: Props) {
             <span className="price-label">Precio:</span>
             <span className="price-value">{price}</span>
           </div>
-          <button className="btn-select" onClick={(e) => {
+            <button className="btn-select" onClick={(e) => {
             e.stopPropagation();
             handleClick();
-          }}>
-            Ver detalles �
-          </button>
+            }}>
+            <span role="img" aria-label="lupa">🔍</span> Ver detalles
+            </button>
         </div>
       </div>
       
