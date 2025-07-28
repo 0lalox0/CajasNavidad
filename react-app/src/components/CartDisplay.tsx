@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext';
+import CheckoutForm from './CheckoutForm';
 import './CartDisplay.css';
 
 const CartDisplay = () => {
   const { cart, removeFromCart, clearCart, updateQuantity } = useCart();
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
-  if (cart.length === 0) return null;
-
+  const [showCheckout, setShowCheckout] = useState(false);
+  
   // Estado para los valores de los inputs de cantidad, indexado por título
   const [qtyInputs, setQtyInputs] = useState<{ [title: string]: string }>({});
 
@@ -19,6 +19,8 @@ const CartDisplay = () => {
     });
     setQtyInputs(newInputs);
   }, [cart]);
+
+  if (cart.length === 0) return null;
 
   const handleInputChange = (title: string, value: string) => {
     setQtyInputs(prev => ({ ...prev, [title]: value }));
@@ -75,7 +77,16 @@ const CartDisplay = () => {
         ))}
       </ul>
       <div className="cart-total">Total: ${total}</div>
-      <button onClick={clearCart}>Vaciar carrito</button>
+      <div className="cart-actions">
+        <button onClick={clearCart} className="cart-clear-btn">Vaciar carrito</button>
+        <button onClick={() => setShowCheckout(true)} className="cart-checkout-btn">
+          🛒 Finalizar Compra
+        </button>
+      </div>
+      
+      {showCheckout && (
+        <CheckoutForm onClose={() => setShowCheckout(false)} />
+      )}
     </div>
   );
 };
