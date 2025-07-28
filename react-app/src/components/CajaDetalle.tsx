@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import './CajaDetalle.css';
 
+import { useCart } from '../context/CartContext';
+
 type CajaDetalleProps = {
   caja: {
     title: string;
@@ -9,11 +11,13 @@ type CajaDetalleProps = {
     url: string;
   };
   onClose: () => void;
+  showAddToCart?: boolean;
 };
 
-function CajaDetalle({ caja, onClose }: CajaDetalleProps) {
+function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
+  const { addToCart } = useCart();
   const [cantidad, setCantidad] = useState(1);
-  const [mostrarContacto, setMostrarContacto] = useState(false);
+  const [agregado, setAgregado] = useState(false);
 
   // Efecto para prevenir scroll del body cuando el modal esté abierto
   useEffect(() => {
@@ -38,16 +42,21 @@ function CajaDetalle({ caja, onClose }: CajaDetalleProps) {
     };
   }, [onClose]);
 
-  const handleComprar = () => {
-    setMostrarContacto(true);
+  const handleAddToCart = () => {
+    addToCart({
+      title: caja.title,
+      price: caja.price,
+      url: caja.url,
+      quantity: cantidad,
+    });
+    setAgregado(true);
+    setTimeout(() => {
+      setAgregado(false);
+      onClose();
+    }, 1200);
   };
 
-  const handleWhatsApp = () => {
-    const mensaje = `¡Hola! Me interesa la ${caja.title} (${cantidad} unidad${cantidad > 1 ? 'es' : ''}) por $${(caja.price * cantidad).toLocaleString()}. ¿Podrían darme más información?`;
-    const numeroWhatsApp = "+542216143354"; // Reemplaza con tu número real
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-    window.open(url, '_blank');
-  };
+  // WhatsApp/Instagram removido para flujo de carrito
 
   return (
     <div className="detalle-overlay" onClick={onClose}>
@@ -118,29 +127,14 @@ function CajaDetalle({ caja, onClose }: CajaDetalleProps) {
               </div>
             </div>
             
-            {!mostrarContacto ? (
+            {showAddToCart && (
               <div className="detalle-acciones">
-                <button className="btn-comprar" onClick={handleComprar}>
-                  🛒 ¡Quiero esta caja!
+                <button className="btn-comprar" onClick={handleAddToCart} disabled={agregado}>
+                  {agregado ? '¡Agregado!' : '🛒 Quiero esta caja'}
                 </button>
                 <button className="btn-volver" onClick={onClose}>
                   ← Seguir viendo cajas
                 </button>
-              </div>
-            ) : (
-              <div className="contacto-section">
-                <div className="contacto-mensaje">
-                  <h4>🎉 ¡Excelente elección!</h4>
-                  <p>Contáctanos para finalizar tu pedido:</p>
-                </div>
-                <div className="contacto-acciones">
-                  <button className="btn-whatsapp" onClick={handleWhatsApp}>
-                    📱 Contactar por WhatsApp
-                  </button>
-                  <button className="btn-instagram" onClick={() => window.open('https://www.instagram.com/cajas_navidad_lp', '_blank')}>
-                    📷 Ver en Instagram
-                  </button>
-                </div>
               </div>
             )}
           </div>

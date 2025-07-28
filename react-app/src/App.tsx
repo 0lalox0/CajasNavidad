@@ -4,6 +4,8 @@ import CardCaja from "./components/CardCaja";
 import CajaDetalle from "./components/CajaDetalle";
 import cajas from "./data/cajas.json";
 import Footer from "./components/Footer";
+import { CartProvider } from "./context/CartContext";
+import CartDisplay from "./components/CartDisplay";
 import "./App.css";
 
 type Caja = {
@@ -25,52 +27,52 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <div className="background-decoration">
-        <div className="snowflake">❄</div>
-        <div className="snowflake">❅</div>
-        <div className="snowflake">❆</div>
-        <div className="snowflake">❄</div>
-        <div className="snowflake">❅</div>
-      </div>
-      
-      <header className="header">
-        <Titulo />
-        <p className="subtitle">
-          🎄 Descubre nuestras cajas navideñas especialmente preparadas para ti 🎁
-          <br />
-          ¡Con Envios particular a toda la Plata, Villa Elisa y alrededores!
-          <br />
-          ¡Tambien hacemos envios a Avellaneda, Buenos Aires y envios por correo a todo el pais!
-          <br />
-          <span className="subtitle-highlight">¡Haz tu pedido ahora!</span>
-        </p>  
-      </header>
-
-      <main className="main-content">
-        <div className="cajas-grid">
-          {cajas.map((caja, index) => (
-            <CardCaja
-              key={index}
-              url={caja.url}
-              title={caja.title}
-              description={caja.description}
-              price={`$${caja.price}`}
-              onCajaClick={() => handleCajaClick(caja)}
-            />
-          ))}
+    <CartProvider>
+      <div className="app-container">
+        <div className="background-decoration">
+          <div className="snowflake">❄</div>
+          <div className="snowflake">❅</div>
+          <div className="snowflake">❆</div>
+          <div className="snowflake">❄</div>
+          <div className="snowflake">❅</div>
         </div>
-      </main>
-
-      <Footer />
-
-      {cajaSeleccionada && (
-        <CajaDetalle
-          caja={cajaSeleccionada}
-          onClose={handleCerrarDetalle}
-        />
-      )}
-    </div>
+        <header className="header">
+          <Titulo />
+          <p className="subtitle">
+            🎄 Descubre nuestras cajas navideñas especialmente preparadas para ti 🎁
+            <br />
+            ¡Con Envios particular a toda la Plata, Villa Elisa y alrededores!
+            <br />
+            ¡Tambien hacemos envios a Avellaneda, Buenos Aires y envios por correo a todo el pais!
+            <br />
+            <span className="subtitle-highlight">¡Haz tu pedido ahora!</span>
+          </p>  
+        </header>
+        <CartDisplay />
+        <main className="main-content">
+          <div className="cajas-grid">
+            {cajas.map((caja, index) => (
+              <CardCaja
+                key={index}
+                url={caja.url}
+                title={caja.title}
+                description={caja.description}
+                price={`$${caja.price}`}
+                onCajaClick={() => handleCajaClick(caja)}
+              />
+            ))}
+          </div>
+        </main>
+        <Footer />
+        {cajaSeleccionada && (
+          <CajaDetalle
+            caja={cajaSeleccionada}
+            onClose={handleCerrarDetalle}
+            showAddToCart
+          />
+        )}
+      </div>
+    </CartProvider>
   );
 }
 
