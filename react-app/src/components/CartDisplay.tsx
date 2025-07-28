@@ -51,11 +51,13 @@ const CartDisplay = () => {
       <h3>🛒 Carrito</h3>
       <ul>
         {cart.map(item => (
-          <li key={item.title}>
-            <img src={item.url} alt={item.title} width={40} />
-            <span>{item.title}</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginLeft: 8 }}>
-              <button onClick={() => updateQuantity(item.title, item.quantity - 1)} disabled={item.quantity <= 1} style={{padding: '0 7px'}}>–</button>
+          <li key={item.title} className="cart-item">
+            <div className="cart-item-img-title">
+              <img src={item.url} alt={item.title} width={40} />
+              <span className="cart-item-title">{item.title}</span>
+            </div>
+            <div className="cart-qty-controls">
+              <button onClick={() => updateQuantity(item.title, item.quantity - 1)} disabled={item.quantity <= 1} className="cart-qty-btn">–</button>
               <input
                 type="number"
                 min={1}
@@ -63,12 +65,12 @@ const CartDisplay = () => {
                 onChange={e => handleInputChange(item.title, e.target.value)}
                 onBlur={e => handleInputBlur(item.title, e.target.value)}
                 onKeyDown={e => handleInputKeyDown(e, item.title, qtyInputs[item.title] ?? item.quantity.toString())}
-                style={{ width: 38, textAlign: 'center', fontSize: '1rem', borderRadius: 4, border: '1px solid #ccc' }}
+                className="cart-qty-input"
               />
-              <button onClick={() => updateQuantity(item.title, item.quantity + 1)} style={{padding: '0 7px'}}>+</button>
+              <button onClick={() => updateQuantity(item.title, item.quantity + 1)} className="cart-qty-btn">+</button>
             </div>
-            <span style={{ marginLeft: 8 }}> = ${item.price * item.quantity}</span>
-            <button onClick={() => removeFromCart(item.title)} style={{ marginLeft: 8 }}>Eliminar</button>
+            <span className="cart-item-total">${item.price * item.quantity}</span>
+            <button onClick={() => removeFromCart(item.title)} className="cart-remove-btn" title="Eliminar">✕</button>
           </li>
         ))}
       </ul>
