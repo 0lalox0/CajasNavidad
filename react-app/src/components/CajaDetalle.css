@@ -36,6 +36,29 @@
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.3);
   animation: slideIn 0.4s ease;
+
+  /* Estilos para scrollbar en navegadores webkit (Chrome, Safari, Edge) */
+  scrollbar-width: thin;
+  scrollbar-color: #2c3e50 transparent;
+}
+
+/* Estilos específicos para webkit */
+.detalle-container::-webkit-scrollbar {
+  width: 8px;
+}
+.detalle-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.detalle-container::-webkit-scrollbar-thumb {
+  background: #2c3e50;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.detalle-container::-webkit-scrollbar-thumb:hover {
+  background: #1a252f;
 }
 
 @keyframes slideIn {
