@@ -86,12 +86,17 @@ function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
             <div className="detalle-descripcion">
               <h3 className="descripcion-titulo">📦 Contenido de la caja:</h3>
               <div className="descripcion-lista">
-                {caja.description.map((item, index) => (
-                  <div key={index} className="descripcion-item">
-                    <span className="item-numero">{index + 1}</span>
-                    <span className="item-texto">{item}</span>
-                  </div>
-                ))}
+                {caja.description.map((item, index) => {
+                    const [numero, ...resto] = item.split('-');
+                    const texto = resto.join('-').trim();
+
+                    return (
+                             <div key={index} className="descripcion-item">
+                                  <span className="item-numero">{numero.trim()}</span>
+                                  <span className="item-texto">{texto}</span>
+                             </div>
+  );
+})}
               </div>
             </div>
             
