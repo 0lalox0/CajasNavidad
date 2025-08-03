@@ -53,7 +53,7 @@ function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
     setTimeout(() => {
       setAgregado(false);
       onClose();
-    }, 1200);
+    }, 1);
   };
 
   // WhatsApp/Instagram removido para flujo de carrito
