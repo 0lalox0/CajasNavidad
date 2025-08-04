@@ -17,6 +17,7 @@ type CajaDetalleProps = {
 function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
   const { addToCart } = useCart();
   const [cantidad, setCantidad] = useState(1);
+  const [cantidadInput, setCantidadInput] = useState('1');
   const [agregado, setAgregado] = useState(false);
 
   // Efecto para prevenir scroll del body cuando el modal esté abierto
@@ -54,6 +55,24 @@ function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
       setAgregado(false);
       onClose();
     }, 1);
+  };
+
+  const handleInputChange = (value: string) => {
+    setCantidadInput(value);
+    if (value === '') {
+      return; // Allow empty input temporarily
+    }
+    const numValue = parseInt(value);
+    if (!isNaN(numValue) && numValue > 0) {
+      setCantidad(numValue);
+    }
+  };
+
+  const handleInputBlur = () => {
+    if (cantidadInput === '' || parseInt(cantidadInput) < 1) {
+      setCantidadInput('1');
+      setCantidad(1);
+    }
   };
 
   // WhatsApp/Instagram removido para flujo de carrito
@@ -111,15 +130,32 @@ function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
                 <div className="cantidad-controls">
                   <button 
                     className="btn-cantidad"
-                    onClick={() => cantidad > 1 && setCantidad(cantidad - 1)}
+                    onClick={() => {
+                      const newValue = Math.max(1, cantidad - 1);
+                      setCantidad(newValue);
+                      setCantidadInput(newValue.toString());
+                    }}
                     disabled={cantidad <= 1}
                   >
                     -
                   </button>
-                  <span className="cantidad-valor">{cantidad}</span>
+                  <input
+                    type="number"
+                    id="cantidad"
+                    className="cantidad-input"
+                    value={cantidadInput}
+                    onChange={(e) => handleInputChange(e.target.value)}
+                    onBlur={handleInputBlur}
+                    min="1"
+                    max="999"
+                  />
                   <button 
                     className="btn-cantidad"
-                    onClick={() => setCantidad(cantidad + 1)}
+                    onClick={() => {
+                      const newValue = cantidad + 1;
+                      setCantidad(newValue);
+                      setCantidadInput(newValue.toString());
+                    }}
                   >
                     +
                   </button>
@@ -135,7 +171,7 @@ function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
             {showAddToCart && (
               <div className="detalle-acciones">
                 <button className="btn-comprar" onClick={handleAddToCart} disabled={agregado}>
-                  {agregado ? '¡Agregado!' : '🛒 Quiero esta caja'}
+                  {agregado ? '¡Agregado!' : '🛒 Agregar caja al carrito'}
                 </button>
                 <button className="btn-volver" onClick={onClose}>
                   ← Seguir viendo cajas
