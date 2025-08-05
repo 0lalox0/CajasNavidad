@@ -35,6 +35,28 @@
   overflow-y: auto;
   animation: slideIn 0.3s ease-out;
   border: 3px solid #e74c3c;
+  /* Estilos para scrollbar negra */
+  scrollbar-width: thin;
+  scrollbar-color: #2c3e50 transparent;
+}
+
+/* Estilos específicos para webkit (Chrome, Safari, Edge) */
+.checkout-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.checkout-container::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+.checkout-container::-webkit-scrollbar-thumb {
+  background: #2c3e50;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.checkout-container::-webkit-scrollbar-thumb:hover {
+  background: #1a252f;
 }
 
 @keyframes slideIn {

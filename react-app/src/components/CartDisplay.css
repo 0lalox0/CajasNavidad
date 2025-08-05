@@ -9,8 +9,34 @@
   z-index: 1000;
   min-width: 270px;
   max-width: 370px;
+  max-height: 80vh;
+  overflow-y: auto;
   border: 1.5px solid #f2e9e1;
   font-family: inherit;
+  
+  /* Estilos para scrollbar negra */
+  scrollbar-width: thin;
+  scrollbar-color: #2c3e50 transparent;
+}
+
+/* Estilos específicos para webkit (Chrome, Safari, Edge) */
+.cart-display::-webkit-scrollbar {
+  width: 8px;
+}
+
+.cart-display::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+.cart-display::-webkit-scrollbar-thumb {
+  background: #2c3e50;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.cart-display::-webkit-scrollbar-thumb:hover {
+  background: #1a252f;
 }
 .cart-display h3 {
   margin: 0 0 0.7rem 0;
