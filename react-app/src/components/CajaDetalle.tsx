@@ -171,10 +171,10 @@ function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
             {showAddToCart && (
               <div className="detalle-acciones">
                 <button className="btn-comprar" onClick={handleAddToCart} disabled={agregado}>
-                  {agregado ? '¡Agregado!' : '🛒 Agregar caja al carrito'}
+                  {agregado ? '¡Agregado!' : '🛒 Agregar al carrito'}
                 </button>
                 <button className="btn-volver" onClick={onClose}>
-                  ← Seguir viendo cajas
+                  ← Seguir viendo 
                 </button>
               </div>
             )}
