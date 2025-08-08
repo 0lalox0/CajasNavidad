@@ -1,16 +1,78 @@
-import Card, { CardBody } from "./components/Card";
-import Button from "./components/Button";
 import { useState } from "react";
+import Titulo from "./components/Titulo";
+import CardCaja from "./components/CardCaja";
+import CajaDetalle from "./components/CajaDetalle";
+import cajas from "./data/cajas.json";
+import Footer from "./components/Footer";
+import { CartProvider } from "./context/CartContext";
+import CartDisplay from "./components/CartDisplay";
+import "./App.css";
+
+type Caja = {
+  title: string;
+  description: string[];
+  price: number;
+  url: string;
+};
+
 function App() {
-  const [isLoading, setisLoading] = useState(false);
-  const handleClick = () => setisLoading(true);
+  const [cajaSeleccionada, setCajaSeleccionada] = useState<Caja | null>(null);
+
+  const handleCajaClick = (caja: Caja) => {
+    setCajaSeleccionada(caja);
+  };
+
+  const handleCerrarDetalle = () => {
+    setCajaSeleccionada(null);
+  };
+
   return (
-    <Card>
-      <CardBody titulo="Titulo" text="Body" />
-      <Button clase="btn btn-primary" onClick={handleClick}>
-        Hola Mundo
-      </Button>
-    </Card>
+    <CartProvider>
+      <div className="app-container">
+        <div className="background-decoration">
+          <div className="snowflake">❄</div>
+          <div className="snowflake">❅</div>
+          <div className="snowflake">❆</div>
+          <div className="snowflake">❄</div>
+          <div className="snowflake">❅</div>
+        </div>
+        <header className="header">
+          <Titulo />
+          <p className="subtitle">
+            🎄 Descubrí nuestras cajas navideñas con productos de la mejor calidad 🎁
+            <br />
+            <span className="subtitle-highlight">¡El regalo perfecto para la familia o empleados en estas fiestas!</span>
+            <br />
+            <span className="subtitle-highlight">¡Llena tu carrito y hace tu pedido ahora!</span>
+            <br />
+            ¡Con Envios a todo el pais!
+          </p>  
+        </header>
+        <CartDisplay />
+        <main className="main-content">
+          <div className="cajas-grid">
+            {cajas.map((caja, index) => (
+              <CardCaja
+                key={index}
+                url={caja.url}
+                title={caja.title}
+                description={caja.description}
+                price={`$${caja.price}`}
+                onCajaClick={() => handleCajaClick(caja)}
+              />
+            ))}
+          </div>
+        </main>
+        <Footer />
+        {cajaSeleccionada && (
+          <CajaDetalle
+            caja={cajaSeleccionada}
+            onClose={handleCerrarDetalle}
+            showAddToCart
+          />
+        )}
+      </div>
+    </CartProvider>
   );
 }
 

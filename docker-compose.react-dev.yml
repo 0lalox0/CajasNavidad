@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  # Solo el servicio de React para desarrollo
+  frontend-dev:
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile.dev
+    container_name: cajas-navidad-frontend-dev-only
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./react-app:/app
+      - /app/node_modules
+    networks:
+      - react-dev-network
+    restart: unless-stopped
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+networks:
+  react-dev-network:
+    driver: bridge

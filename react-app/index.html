@@ -1,13 +1,62 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/jpeg" href="/iconoCajas.jpg" />
+    <link rel="shortcut icon" href="/iconoCajas.jpg" />
+    <link rel="apple-touch-icon" href="/iconoCajas.jpg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/iconoCajas.jpg" />
+    
+    <!-- Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <meta name="description" content="Cajas Navideñas La Plata - Las mejores cajas navideñas con productos de calidad" />
+    <meta name="theme-color" content="#0f4c75" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cajas Navideñas La Plata 🎄" />
+    <meta property="og:description" content="Las mejores cajas navideñas con productos de calidad para hacer tu navidad especial" />
+    <meta property="og:image" content="/iconoCajas.jpg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cajas Navideñas La Plata 🎄" />
+    <meta name="twitter:description" content="Las mejores cajas navideñas con productos de calidad" />
+    <meta name="twitter:image" content="/iconoCajas.jpg" />
+    
+    <title>Cajas Navideñas La Plata 🎄</title>
+    <style>
+      /* Estilo inicial para evitar flash blanco */
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #0f4c75 0%, #3282b8 50%, #bbe1fa 100%);
+        background-attachment: fixed;
+        font-family: 'Inter', 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+      }
+      #root {
+        min-height: 100vh;
+        width: 100%;
+      }
+      /* Loading spinner inicial */
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+        font-size: 1.2rem;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loading">
+        🎄 Cargando Cajas Navideñas... 🎁
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
