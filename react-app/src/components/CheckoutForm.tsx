@@ -13,6 +13,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ onClose }) => {
     apellido: '',
     formaPago: 'efectivo',
     zonaEnvio: '',
+    calle: '',
+    numero: '',
     indicaciones: ''
   });
 
