@@ -13,6 +13,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({ onClose }) => {
     apellido: '',
     formaPago: 'efectivo',
     zonaEnvio: '',
+    calle: '',
+    numero: '',
     indicaciones: ''
   });
 
@@ -55,8 +57,8 @@ ${formData.indicaciones ? `📝 *Indicaciones especiales:*\n${formData.indicacio
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.nombre || !formData.apellido || !formData.zonaEnvio) {
+
+    if (!formData.nombre || !formData.apellido || !formData.zonaEnvio || !formData.calle || !formData.numero) {
       alert('Por favor completa todos los campos obligatorios');
       return;
     }
