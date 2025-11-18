@@ -146,7 +146,7 @@ ${formData.indicaciones ? `📝 *Indicaciones especiales:*\n${formData.indicacio
                   required
                 >
                   <option value="efectivo">💵 Efectivo</option>
-                  <option value="transferencia">🏦 Transferencia bancaria</option>
+                  <option value="transferencia">🏦 Transferencia bancaria/Mercado Pago</option>
                 </select>
               </div>
             </div>
@@ -166,7 +166,35 @@ ${formData.indicaciones ? `📝 *Indicaciones especiales:*\n${formData.indicacio
                 />
               </div>
             </div>
-
+            <div className="form-section">
+              <h3>🏠 Dirección</h3>
+              <div className="form-row">
+                <div className="form-group">
+                  <label htmlFor="calle">Calle *</label>
+                  <input
+                    type="text"
+                    id="calle"
+                    name="calle"
+                    value={formData.calle}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Ej: Calle 44"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="numero">Número *</label>
+                  <input
+                    type="text"
+                    id="numero"
+                    name="numero"
+                    value={formData.numero}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Ej: 2347"
+                  />
+                </div>
+              </div>
+            </div>
             <div className="form-section">
               <h3>📝 Indicaciones adicionales</h3>
               <div className="form-group">
