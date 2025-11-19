@@ -4,10 +4,10 @@ import CardCaja from "./components/CardCaja";
 import CajaDetalle from "./components/CajaDetalle";
 import cajas from "./data/cajas.json";
 import Footer from "./components/Footer";
-import { CartProvider } from "./context/CartContext";
+import { CartProvider , useCart} from "./context/CartContext";
 import CartDisplay from "./components/CartDisplay";
 import "./App.css";
-
+import FloatingCartButton from "./components/FloatingCartButton";
 type Caja = {
   title: string;
   description: string[];
@@ -25,7 +25,12 @@ function App() {
   const handleCerrarDetalle = () => {
     setCajaSeleccionada(null);
   };
-
+    // Wrapper que usa el hook dentro del provider y muestra el botón solo si hay items
+  const FloatingButtonWrapper: React.FC = () => {
+    const { cart } = useCart();
+    if (!cart || cart.length === 0) return null;
+    return <FloatingCartButton />;
+  };
   return (
     <CartProvider>
       <div className="app-container">
@@ -71,6 +76,8 @@ function App() {
             showAddToCart
           />
         )}
+        <FloatingButtonWrapper />
+
       </div>
     </CartProvider>
   );
