@@ -113,11 +113,12 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+  transform: scale(var(--image-zoom, 1));
   transition: transform 0.3s ease;
 }
 
 .detalle-imagen:hover img {
-  transform: scale(1.05);
+  transform: scale(calc(var(--image-zoom, 1) * 1.02));
 }
 
 .detalle-badge {

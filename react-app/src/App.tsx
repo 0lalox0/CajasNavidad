@@ -2,7 +2,7 @@ import { useState } from "react";
 import Titulo from "./components/Titulo";
 import CardCaja from "./components/CardCaja";
 import CajaDetalle from "./components/CajaDetalle";
-import cajas from "./data/cajas.json";
+import cajas from "./data/cajas2026.json";
 import Footer from "./components/Footer";
 import { CartProvider , useCart} from "./context/CartContext";
 import CartDisplay from "./components/CartDisplay";
@@ -13,6 +13,7 @@ type Caja = {
   description: string[];
   price: number;
   url: string;
+  imageZoom?: number;
 };
 
 function App() {
@@ -62,7 +63,8 @@ function App() {
                 url={caja.url}
                 title={caja.title}
                 description={caja.description}
-                price={`$${caja.price}`}
+                price={`$${caja.price.toLocaleString("es-AR")}`}
+                imageZoom={caja.imageZoom}
                 onCajaClick={() => handleCajaClick(caja)}
               />
             ))}

@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import './CardCaja.css';
 
 type Props = {
@@ -5,11 +6,12 @@ type Props = {
   title: string;
   description: string[];
   price: string;
+  imageZoom?: number;
   onCajaClick: () => void;
 };
 
 function CardCaja(props: Props) {
-  const { url, title, description, price, onCajaClick } = props;
+  const { url, title, description, price, imageZoom, onCajaClick } = props;
   
   const handleClick = () => {
     onCajaClick();
@@ -18,7 +20,12 @@ function CardCaja(props: Props) {
   return (
     <div className="card-caja" onClick={handleClick}>
       <div className="card-image-container">
-        <img src={url} className="card-image" alt={title} />
+        <img
+          src={url}
+          className="card-image"
+          alt={title}
+          style={imageZoom ? ({ "--image-zoom": imageZoom } as CSSProperties) : undefined}
+        />
         <div className="card-overlay">
           <span className="card-overlay-text">Ver detalles</span>
         </div>

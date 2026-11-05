@@ -19,7 +19,7 @@
 
 .card-image-container {
   position: relative;
-  height: 250px;
+  height: 330px;
   overflow: hidden;
 }
 
@@ -27,11 +27,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(var(--image-zoom, 1));
   transition: transform 0.3s ease;
 }
 
 .card-caja:hover .card-image {
-  transform: scale(1.1);
+  transform: scale(calc(var(--image-zoom, 1) * 1.05));
 }
 
 .card-overlay {

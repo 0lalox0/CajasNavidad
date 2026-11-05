@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import type { CSSProperties } from 'react';
 import './CajaDetalle.css';
 
 import { useCart } from '../context/CartContext';
@@ -9,6 +10,7 @@ type CajaDetalleProps = {
     description: string[];
     price: number;
     url: string;
+    imageZoom?: number;
   };
   onClose: () => void;
   showAddToCart?: boolean;
@@ -86,7 +88,11 @@ function CajaDetalle({ caja, onClose, showAddToCart }: CajaDetalleProps) {
         
         <div className="detalle-content">
           <div className="detalle-imagen">
-            <img src={caja.url} alt={caja.title} />
+            <img
+              src={caja.url}
+              alt={caja.title}
+              style={caja.imageZoom ? ({ "--image-zoom": caja.imageZoom } as CSSProperties) : undefined}
+            />
             <div className="detalle-badge">
               🎁 Oferta Especial
             </div>
